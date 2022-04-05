@@ -31,4 +31,22 @@ public class MaxTest {
         int[] expected = {0};
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldDefineIfHigherThenMaxSpeed() {
+        Max.setIsGreenLight(false);
+        Max.getIsGreenLight();
+        int[] speed = {3, 67, 60};
+
+        int actual1 = Max.numberOfGetOut(speed);
+        int expected1 = 1;
+        int[] actual2 = Max.toKnowSpeedOut(speed);
+        int[] expected2 = {67};
+        int[] actual = Max.toKnowStayIn(speed);
+        int[] expected = {3, 60};
+
+        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertEquals(expected1, actual1);
+        Assertions.assertArrayEquals(expected2, actual2);
+    }
 }

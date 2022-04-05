@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Max {
     private static boolean isGreenLight;
-
+    private static int maxSpeed = 60;
 
     public static void setIsGreenLight(boolean isGreenLight) {
         Max.isGreenLight = isGreenLight;
@@ -23,7 +23,7 @@ public class Max {
             int cnt = 0;
 
             for (int i : speed) {
-                if (i > 0) {
+                if (i > maxSpeed) {
                     cnt++;
                 }
             }
@@ -39,14 +39,14 @@ public class Max {
         } else {
             int cnt = 0;
             for (int speed : speeds) {
-                if (speed > 0) {
+                if (speed > maxSpeed) {
                     cnt++;
                 }
             }
             int[] rest = new int[cnt];
             int i = 0;
             for (int speed : speeds) {
-                if (speed > 0) {
+                if (speed > maxSpeed) {
                     rest[i] = speed;
                     i++;
                 }
@@ -62,8 +62,23 @@ public class Max {
             return null;
         }
         else {
-            System.out.println("Скорости невыбывающих 0");
+            int cnt = 0;
+            for (int speed : speeds) {
+                if (speed <= maxSpeed) {
+                    cnt++;
+                }
+            }
+            int[] rest = new int[cnt];
+            int i = 0;
+            for (int speed : speeds) {
+                if (speed <= maxSpeed) {
+                    rest[i] = speed;
+                    i++;
+                }
+            }
+            System.out.println("Скорости невыбывающих: " + Arrays.toString(rest));
+            return rest;
         }
-        return new int[]{0};
+
     }
 }

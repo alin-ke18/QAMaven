@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        int[] speed = {3, 5, 0};
+        int[] speed = {3, 65, 60};
         Max.setIsGreenLight(false);
         Max.getIsGreenLight();
         Max.numberOfGetOut(speed);
