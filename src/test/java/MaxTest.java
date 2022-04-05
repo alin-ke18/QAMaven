@@ -9,7 +9,7 @@ public class MaxTest {
         Max.getIsGreenLight();
         int[] speed = {3, 0, 0};
         int actual = Max.numberOfGetOut(speed);
-        int expected = 1;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
     @Test
@@ -18,7 +18,7 @@ public class MaxTest {
         Max.getIsGreenLight();
         int[] speed = {3, 67, 0};
         int[] actual = Max.toKnowSpeedOut(speed);
-        int[] expected = {3, 67};
+        int[] expected = {67};
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -28,7 +28,7 @@ public class MaxTest {
         Max.getIsGreenLight();
         int[] speed = {3, 67, 0};
         int[] actual = Max.toKnowStayIn(speed);
-        int[] expected = {0};
+        int[] expected = {3, 0};
         Assertions.assertArrayEquals(expected, actual);
     }
 
