@@ -1,23 +1,22 @@
-import java.util.Arrays;
-
 public class Max {
+
     private static boolean isGreenLight;
-    private static int maxSpeed = 60;
+    private static final int maxSpeed = 60;
 
     public static void setIsGreenLight(boolean isGreenLight) {
         Max.isGreenLight = isGreenLight;
     }
 
     public static void getIsGreenLight() {
-        if (isGreenLight) {
-            System.out.println("Светофор зеленый!");
-        } else
-            System.out.println("Светофор красный!");
+//        if (isGreenLight) {
+//            System.out.println("Светофор зеленый!");
+//        } else
+//            System.out.println("Светофор красный!");
     }
 
     public static int numberOfGetOut(int[] speed) {
         if (isGreenLight) {
-            System.out.println("Количество выбывших игроков: 0");
+//            System.out.println("Количество выбывших игроков: 0");
             return 0;
         } else {
             int cnt = 0;
@@ -27,15 +26,15 @@ public class Max {
                     cnt++;
                 }
             }
-            System.out.println("Количество выбывших игроков: " + cnt);
+//            System.out.println("Количество выбывших игроков: " + cnt);
             return cnt;
         }
     }
 
     public static int[] toKnowSpeedOut(int[] speeds) {
         if (isGreenLight) {
-            System.out.println("Нет выбывших игроков.");
-            return new int[]{0};
+//            System.out.println("Нет выбывших игроков.");
+            return new int[0];
         } else {
             int cnt = 0;
             for (int speed : speeds) {
@@ -51,17 +50,16 @@ public class Max {
                     i++;
                 }
             }
-            System.out.println("Игроки выбыли со скоростью: " + Arrays.toString(rest));
+//            System.out.println("Игроки выбыли со скоростью: " + Arrays.toString(rest));
             return rest;
         }
     }
 
     public static int[] toKnowStayIn(int[] speeds) {
         if (isGreenLight) {
-            System.out.println("Скорости игроков: " + Arrays.toString(speeds));
-            return null;
-        }
-        else {
+//            System.out.println("Скорости игроков: " + Arrays.toString(speeds));
+            return speeds;
+        } else {
             int cnt = 0;
             for (int speed : speeds) {
                 if (speed <= maxSpeed) {
@@ -76,9 +74,10 @@ public class Max {
                     i++;
                 }
             }
-            System.out.println("Скорости невыбывающих: " + Arrays.toString(rest));
+//            System.out.println("Скорости невыбывающих: " + Arrays.toString(rest));
             return rest;
         }
 
     }
+
 }
