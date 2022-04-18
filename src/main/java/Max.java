@@ -3,21 +3,25 @@ import java.util.Arrays;
 
 public class Max {
 
-    private static boolean isGreenLight;
+    private boolean isGreenLight;
     private static final int maxSpeed = 60;
+//
+//    public void setIsGreenLight(boolean isGreenLight) {
+//        Max.isGreenLight = isGreenLight;
+//    }
 
-    public static void setIsGreenLight(boolean isGreenLight) {
-        Max.isGreenLight = isGreenLight;
+    public Max(boolean isGreenLight) {
+        this.isGreenLight = isGreenLight;
     }
 
-    public static void getIsGreenLight() {
-//        if (isGreenLight) {
-//            System.out.println("Светофор зеленый!");
-//        } else
-//            System.out.println("Светофор красный!");
-    }
+//    public static void getIsGreenLight() {
+////        if (isGreenLight) {
+////            System.out.println("Светофор зеленый!");
+////        } else
+////            System.out.println("Светофор красный!");
+//    }
 
-    public static int numberOfGetOut(int[] speed) {
+    public int numberOfGetOut(int[] speed) {
         if (isGreenLight) {
 //            System.out.println("Количество выбывших игроков: 0");
             return 0;
@@ -34,7 +38,7 @@ public class Max {
         }
     }
 
-    public static int[] toKnowSpeedOut(int[] speeds) {
+    public int[] toKnowSpeedOut(int[] speeds) {
         if (isGreenLight) {
 //            System.out.println("Нет выбывших игроков.");
             return new int[0];
@@ -58,7 +62,7 @@ public class Max {
         }
     }
 
-    public static int[] toKnowStayIn(int[] speeds) {
+    public int[] toKnowStayIn(int[] speeds) {
         if (isGreenLight) {
 //            System.out.println("Скорости игроков: " + Arrays.toString(speeds));
             return speeds;
@@ -83,7 +87,7 @@ public class Max {
 
     }
 
-    public static String[] PlayersNameStayedInGame(String[] nameLines) {
+    public  String[] PlayersNameStayedInGame(String[] nameLines) {
 
         String[] parts1 = new String[nameLines.length];
         String[] parts2 = new String[nameLines.length];
@@ -99,6 +103,7 @@ public class Max {
             j++;
         }
         if (isGreenLight) {
+//            System.out.println(Arrays.toString(parts1));
             return parts1;
         } else {
             int[] elements = new int[parts2.length];
