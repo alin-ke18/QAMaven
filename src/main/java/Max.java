@@ -1,3 +1,6 @@
+import java.security.SecureRandom;
+import java.util.Arrays;
+
 public class Max {
 
     private static boolean isGreenLight;
@@ -80,4 +83,55 @@ public class Max {
 
     }
 
+    public static String[] PlayersNameStayedInGame(String[] nameLines) {
+
+        String[] parts1 = new String[nameLines.length];
+        String[] parts2 = new String[nameLines.length];
+        int i = 0;
+        int j = 0;
+
+        for (String line : nameLines) {
+            String[] parts = line.split(" ");
+            parts1[i] = parts[0];
+            i++;
+
+            parts2[j] = parts[1];
+            j++;
+        }
+        if (isGreenLight) {
+            return parts1;
+        } else {
+            int[] elements = new int[parts2.length];
+            for (int ii = 0; ii < parts2.length; ii++) {
+                elements[ii] = Integer.parseInt(parts2[ii]);
+            }
+            int cnt = 0;
+            for (int element : elements) {
+                if (element <= maxSpeed) {
+                    cnt++;
+                }
+            }
+            int[] numberOut = new int[cnt];
+            String[] out = new String[cnt];
+            int ii = 0;
+            for (int el : elements) {
+                if (el <= maxSpeed) {
+                    numberOut[ii] = el;
+                    ii++;
+                }
+            }
+            int a = 0;
+            for (int number : numberOut) {
+                for (int b = 0; b < elements.length; b++) {
+                    if (number == elements[b]) {
+                        out[a] = parts1[b];
+                        a++;
+                        break;
+                    }
+                }
+            }
+//            System.out.println(Arrays.toString(out));
+            return out;
+        }
+    }
 }

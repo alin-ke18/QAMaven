@@ -49,4 +49,13 @@ public class MaxTest {
         Assertions.assertEquals(expected1, actual1);
         Assertions.assertArrayEquals(expected2, actual2);
     }
+    @Test
+    public void shouldKnowNamesPlayers() {
+        Max.setIsGreenLight(false);
+        Max.getIsGreenLight();
+        String[] players = {"Katya 108", "Sveta 64", "Igor 2"};
+        String[] actual = Max.PlayersNameStayedInGame(players);
+        String[] expected = {"Igor"};
+        Assertions.assertArrayEquals(actual, expected);
+    }
 }
