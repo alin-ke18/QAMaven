@@ -4,15 +4,15 @@ public class Game {
 
     public boolean isFailed(int speed) {
         if (isGreenLight) {
-//            System.out.println("Осталя");
+            System.out.println("Осталя");
             return false;
         } else
-//            if (speed >0) {
-////                System.out.println("Выбыл");
-//            }
-//            if (speed == 0) {
-////                System.out.println("Остался");
-//            }
+            if (speed >0) {
+//                System.out.println("Выбыл");
+            }
+            if (speed == 0) {
+//                System.out.println("Остался");
+            }
            return speed > 0;
         }
 
