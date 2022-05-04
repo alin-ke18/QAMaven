@@ -4,29 +4,64 @@ import org.junit.jupiter.api.Test;
 public class MaxTest {
 
     @Test
-    public void shouldCountNumberOfGetOut() {
+    public void shouldCountNumberOfGetOutWithSameSpeedWithRedLight() {
         Max max = new Max(false);
 
-        int[] speed = {3, 0, 0};
+        int[] speed = {61, 61, 61};
+        int actual = max.numberOfGetOut(speed);
+        int expected = 3;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldCountNumberOfGetOutWithGreenLight() {
+        Max max = new Max(true);
+
+        int[] speed = {61, 80, 90};
         int actual = max.numberOfGetOut(speed);
         int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldFindSpeedToGetOut() {
+    public void shouldCountNumberOfGetOutWithZeroSpeedAndRedLight() {
+        Max max = new Max(false);
+
+        int[] speed = {0, 0, 0};
+        int actual = max.numberOfGetOut(speed);
+        int expected = 0;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindSpeedToGetOutInRedLight() {
         Max max = new Max(false);
         int[] speed = {3, 67, 0};
         int[] actual = max.toKnowSpeedOut(speed);
         int[] expected = {67};
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    public void shouldFindSpeedToGetOutInGreenLight() {
+        Max max = new Max(true);
+        int[] speed = {3, 67, 0};
+        int[] actual = max.toKnowSpeedOut(speed);
+        int[] expected = {};
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
     @Test
-    public void shouldFindSpeedToStayedIn() {
+    public void shouldFindSpeedToStayedInInRedLight() {
         Max max = new Max(false);
         int[] speed = {3, 67, 0};
         int[] actual = max.toKnowStayIn(speed);
         int[] expected = {3, 0};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void shouldFindSpeedToStayedInInGreenLight() {
+        Max max = new Max(true);
+        int[] speed = {3, 67, 0};
+        int[] actual = max.toKnowStayIn(speed);
+        int[] expected = {3, 67, 0};
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -47,11 +82,34 @@ public class MaxTest {
         Assertions.assertArrayEquals(expected2, actual2);
     }
     @Test
-    public void shouldKnowNamesPlayers() {
+    public void shouldKnowPlayersNamesIfAllHigherThenMaxSpeedWithRedLight() {
         Max max = new Max(false);
-        String[] players = {"Katya 108", "Sveta 64", "Igor 2"};
+        String[] players = {"Katya 108", "Sveta 64", "Igor 72"};
         String[] actual = max.PlayersNameStayedInGame(players);
-        String[] expected = {"Igor"};
+        String[] expected = {};
         Assertions.assertArrayEquals(actual, expected);
+    }
+    @Test
+    public void shouldKnowPlayersNamesIfAllSpeedAreEqual() {
+        Max max = new Max(false);
+        String[] players = {"Katya 60", "Sveta 60", "Igor 60"};
+        String[] actual = max.PlayersNameStayedInGame(players);
+        String[] expected = {"Katya", "Sveta", "Igor"};
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldKnowPlayersIsFailed() {
+        Game game = new Game(false);
+        int speed = 9;
+        game.isFailed(speed);
+        Assertions.assertTrue(true);
+    }
+
+    @Test
+    public void shouldKnowPlayerIsFailedWithMaxSpeed() {
+       SpeedyGame spGame = new SpeedyGame(true,80);
+       spGame.isFailed(90);
+       Assertions.assertTrue(true);
     }
 }

@@ -8,6 +8,21 @@ public class SpeedyGame extends Game {
         this.MAXSPEED = MAXSPEED;
     }
 
+        @Override
+    public boolean isFailed(int speed) {
+
+            if (isGreenLight) {
+//            System.out.println("Остался");
+                return false;
+            } else
+//            if (speed >0) {
+////                System.out.println("Выбыл");
+//            }
+//            if (speed == 0) {
+////                System.out.println("Остался");
+//            }
+                return speed > MAXSPEED;
+    }
     public int getMAXSPEED() {
 //        System.out.println("Максимальная скорость: " + MAXSPEED);
         return MAXSPEED;

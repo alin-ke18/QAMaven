@@ -4,7 +4,7 @@ public class Game {
 
     public boolean isFailed(int speed) {
         if (isGreenLight) {
-//            System.out.println("Осталя");
+//            System.out.println("Остался");
             return false;
         } else
 //            if (speed >0) {
