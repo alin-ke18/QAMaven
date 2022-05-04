@@ -116,27 +116,28 @@ public class Max {
                     cnt++;
                 }
             }
-            int[] numberOut = new int[cnt];
-            String[] out = new String[cnt];
+            int[] numberIn = new int[cnt];
+            String[] inGame = new String[cnt];
             int ii = 0;
             for (int el : elements) {
                 if (el <= maxSpeed) {
-                    numberOut[ii] = el;
+                    numberIn[ii] = el;
                     ii++;
                 }
             }
             int a = 0;
-            for (int number : numberOut) {
+//            for (int number : numberOut) {
                 for (int b = 0; b < elements.length; b++) {
+                    for (int number : numberIn) {
                     if (number == elements[b]) {
-                        out[a] = parts1[b];
+                        inGame[a] = parts1[b];
                         a++;
                         break;
                     }
                 }
             }
-//            System.out.println(Arrays.toString(out));
-            return out;
+//            System.out.println(Arrays.toString(inGame));
+            return inGame;
         }
     }
 }
