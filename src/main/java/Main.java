@@ -13,15 +13,17 @@ public class Main {
 ////        Max.PlayersNameStayedInGame(players);
 //        Max max = new Max(true);
 //        max.PlayersNameStayedInGame(players);
-        Game game = new Game(false);
+//        Game game = new Game(true);
+        SpeedyGame spGame = new SpeedyGame(false, 60);
 //        game.isFailed(8);
 //        SpeedyGame game1 = new SpeedyGame(false, 60);
 //        game1.getMAXSPEED();
 //        game1.setMAXSPEED(40);
 //        game1.getMAXSPEED();
-        int[] speeds = {56, 0, 5};
-        GameManager gameManager = new GameManager(game);
-        gameManager.countRounds(speeds);
-
+        int[] speeds = {70, 0, 5};
+//        GameManager gameManager = new GameManager(game);
+//        gameManager.countRounds(speeds);
+        GameManager gameManager1 = new GameManager(spGame);
+        gameManager1.countRounds(speeds);
     }
 }
