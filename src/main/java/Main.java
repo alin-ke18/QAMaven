@@ -9,9 +9,9 @@ public class Main {
 //        Max.numberOfGetOut(speed);
 //        Arrays.toString(Max.toKnowSpeedOut(speed));
 //        Max.toKnowStayIn(speed);
-        Max max = new Max(false);
-        String[] players = {"Katya 60", "Sveta 60", "Igor 75", "Olya 15"};
-        max.PlayersNameStayedInGame(players);
+//        Max max = new Max(false);
+//        String[] players = {"Katya 60", "Sveta 60", "Igor 75", "Olya 15"};
+//        max.PlayersNameStayedInGame(players);
 //        Max max = new Max(true);
 //        max.PlayersNameStayedInGame(players);
 //        Game game = new Game(true);

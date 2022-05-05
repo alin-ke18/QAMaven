@@ -112,4 +112,40 @@ public class MaxTest {
        spGame.isFailed(90);
        Assertions.assertTrue(true);
     }
+    @Test
+    public void shouldCountRoundsWithRedLight() {
+       Game game = new Game(false);
+       GameManager gmManager = new GameManager(game);
+       int[] speeds = {5, 0, 5};
+      int expected = gmManager.countRounds(speeds);
+      int actual = 1;
+      Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldCountRoundsWithGreenLight() {
+        Game game = new Game(true);
+        GameManager gmManager = new GameManager(game);
+        int[] speeds = {5, 0, 9};
+        int expected = gmManager.countRounds(speeds);
+        int actual = 3;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldCountRoundsWithRedLightAndMaxSpeed() {
+        SpeedyGame spgame = new SpeedyGame(false, 60);
+        GameManager gmManager = new GameManager(spgame);
+        int[] speeds = {60, 10, 75};
+        int expected = gmManager.countRounds(speeds);
+        int actual = 2;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldCountRoundsWithGreenLightAndMaxSpeed() {
+        SpeedyGame spgame = new SpeedyGame(true, 60);
+        GameManager gmManager = new GameManager(spgame);
+        int[] speeds = {60, 10, 0};
+        int expected = gmManager.countRounds(speeds);
+        int actual = 3;
+        Assertions.assertEquals(expected, actual);
+    }
 }

@@ -16,7 +16,7 @@ public class GameManager {
             }
             i++;
         }
-        System.out.println(rounds);
+//        System.out.println(rounds);
         return rounds;
     }
 }
